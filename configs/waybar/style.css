@@ -1,0 +1,105 @@
+/* ==============================================================================
+ * Yumemiro OS - Waybar Glassmorphism Style
+ * Colors: Pastel Purple (#d8b4fe), Soft Pink (#f472b6), Lavender (#c084fc)
+ * ============================================================================== */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: 'Outfit', 'Inter', 'Noto Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Module Container Pill Styling */
+#custom-launcher,
+#workspaces,
+#window,
+#custom-music,
+#clock,
+#custom-weather,
+#cpu,
+#memory,
+#battery,
+#pulseaudio,
+#custom-power {
+    background: rgba(28, 20, 42, 0.72);
+    border: 1px solid rgba(244, 114, 182, 0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    margin: 2px 4px;
+    color: #f3e8ff;
+    box-shadow: 0 4px 15px rgba(192, 132, 252, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Hover Micro-animations */
+#custom-launcher:hover,
+#custom-music:hover,
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#pulseaudio:hover,
+#custom-power:hover {
+    background: rgba(45, 30, 68, 0.85);
+    border-color: rgba(244, 114, 182, 0.5);
+    box-shadow: 0 6px 20px rgba(244, 114, 182, 0.3);
+}
+
+/* Custom Launcher Pill */
+#custom-launcher {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.4), rgba(192, 132, 252, 0.4));
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 8px;
+    color: #c084fc;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(244, 114, 182, 0.3);
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    background: linear-gradient(135deg, #f472b6, #c084fc);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(244, 114, 182, 0.4);
+}
+
+/* Window Title */
+#window {
+    color: #d8b4fe;
+    font-weight: 500;
+}
+
+/* Clock Module */
+#clock {
+    color: #f472b6;
+    font-weight: 700;
+}
+
+/* Power Menu Module */
+#custom-power {
+    background: rgba(244, 114, 182, 0.25);
+    color: #f472b6;
+    font-size: 15px;
+    padding: 4px 10px;
+}
+
+#custom-power:hover {
+    background: #f472b6;
+    color: #ffffff;
+}

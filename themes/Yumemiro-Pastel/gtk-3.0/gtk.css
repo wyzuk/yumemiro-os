@@ -1,0 +1,69 @@
+/* ==============================================================================
+ * Yumemiro OS - GTK3 Glassmorphic Theme
+ * ============================================================================== */
+
+@define-color bg_color rgba(22, 16, 34, 0.88);
+@define-color fg_color #f3e8ff;
+@define-color accent_pink #f472b6;
+@define-color accent_purple #c084fc;
+@define-color accent_lavender #d8b4fe;
+@define-color card_bg rgba(38, 26, 58, 0.65);
+@define-color selected_bg_color rgba(244, 114, 182, 0.35);
+
+window {
+    background-color: @bg_color;
+    color: @fg_color;
+    border-radius: 24px;
+}
+
+headerbar {
+    background: linear-gradient(135deg, rgba(38, 26, 58, 0.8), rgba(28, 20, 42, 0.8));
+    border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    padding: 6px 12px;
+}
+
+button {
+    background: @card_bg;
+    color: @fg_color;
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    border-radius: 16px;
+    padding: 8px 16px;
+    transition: all 0.25s ease-in-out;
+}
+
+button:hover {
+    background: rgba(244, 114, 182, 0.25);
+    border-color: @accent_pink;
+    box-shadow: 0 4px 12px rgba(244, 114, 182, 0.25);
+}
+
+button:active, button.suggested-action {
+    background: linear-gradient(135deg, @accent_pink, @accent_purple);
+    color: #ffffff;
+    border: none;
+}
+
+entry {
+    background: @card_bg;
+    color: @fg_color;
+    border: 1px solid rgba(244, 114, 182, 0.3);
+    border-radius: 14px;
+    padding: 8px 12px;
+}
+
+entry:focus {
+    border-color: @accent_pink;
+    box-shadow: 0 0 10px rgba(244, 114, 182, 0.4);
+}
+
+scrollbar slider {
+    background: rgba(192, 132, 252, 0.4);
+    border-radius: 10px;
+    min-width: 6px;
+}
+
+scrollbar slider:hover {
+    background: @accent_pink;
+}

@@ -1,0 +1,60 @@
+# Base Arch System
+base
+linux
+linux-firmware
+arch-install-scripts
+archinstall
+sudo
+networkmanager
+dhcpcd
+wpa_supplicant
+
+# Hyprland Desktop Ecosystem
+hyprland
+hyprpaper
+hyprlock
+hypridle
+waybar
+rofi-wayland
+kitty
+dunst
+xdg-desktop-portal-hyprland
+grim
+slurp
+wl-clipboard
+polkit-kde-agent
+
+# Display Manager, Installer & Boot Theme
+sddm
+calamares
+kconfig
+kcoreaddons
+ki18n
+qt5-graphicaleffects
+qt5-quickcontrols2
+qt5-svg
+plymouth
+grub
+
+# Audio & Media
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+pavucontrol
+playerctl
+
+# Core Applications
+firefox
+thunar
+htop
+fastfetch
+tk
+python-gobject
+
+# Fonts & Icons
+papirus-icon-theme
+ttf-font-awesome
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Yumemiro OS - System Updater
+# ==============================================================================
+
+echo "=========================================="
+echo "   🌸 Yumemiro OS System Updater 🌸"
+echo "=========================================="
+echo ""
+
+if command -v paru &> /dev/null; then
+    echo "Running paru system upgrade..."
+    paru -Syu
+elif command -v pacman &> /dev/null; then
+    echo "Running pacman system upgrade..."
+    sudo pacman -Syu
+else
+    echo "Error: Package manager not found!"
+fi
+
+echo ""
+echo "System update complete! Press ENTER to exit."
+read -r

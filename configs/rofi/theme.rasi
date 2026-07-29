@@ -1,0 +1,121 @@
+/* ==============================================================================
+ * Yumemiro OS - Rofi Pastel Glassmorphism Launcher
+ * ============================================================================== */
+
+configuration {
+    modi:                       "drun,run,filebrowser";
+    show-icons:                 true;
+    display-drun:               "🌸 Apps";
+    display-run:                "⚡ Run";
+    display-filebrowser:        "📁 Files";
+    drun-display-format:        "{name}";
+    font:                       "Inter SemiBold 11";
+}
+
+* {
+    bg-main:                    rgba(22, 16, 34, 0.82);
+    bg-card:                    rgba(38, 26, 58, 0.65);
+    bg-selected:                rgba(244, 114, 182, 0.35);
+    border-color:               rgba(244, 114, 182, 0.5);
+    fg-main:                    #f3e8ff;
+    fg-dim:                     #d8b4fe;
+    highlight:                  #f472b6;
+}
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      720px;
+    x-offset:                   0px;
+    y-offset:                   0px;
+    enabled:                    true;
+    border-radius:              24px;
+    border:                     2px;
+    border-color:               @border-color;
+    background-color:           @bg-main;
+    cursor:                     "default";
+    padding:                    24px;
+}
+
+mainbox {
+    enabled:                    true;
+    spacing:                    16px;
+    background-color:           transparent;
+    children:                   [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                    true;
+    spacing:                    12px;
+    padding:                    12px 18px;
+    border-radius:              16px;
+    background-color:           @bg-card;
+    border:                     1px;
+    border-color:               rgba(192, 132, 252, 0.3);
+    text-color:                 @fg-main;
+    children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @highlight;
+    font:                       "Inter Bold 11";
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @fg-main;
+    cursor:                     text;
+    placeholder:                "Search applications...";
+    placeholder-color:          @fg-dim;
+}
+
+listview {
+    enabled:                    true;
+    columns:                    2;
+    lines:                      6;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              true;
+    spacing:                    10px;
+    background-color:           transparent;
+}
+
+element {
+    enabled:                    true;
+    spacing:                    12px;
+    padding:                    10px 14px;
+    border-radius:              14px;
+    background-color:           @bg-card;
+    text-color:                 @fg-main;
+    cursor:                     pointer;
+}
+
+element selected.normal {
+    background-color:           @bg-selected;
+    border:                     1px;
+    border-color:               @highlight;
+    text-color:                 #ffffff;
+}
+
+element-icon {
+    background-color:           transparent;
+    size:                       32px;
+    cursor:                     inherit;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+}

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Yumemiro OS - Screenshot Tool
+# ==============================================================================
+
+DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$DIR"
+FILENAME="$DIR/screenshot_$(date +'%Y%m%d_%H%M%S').png"
+
+if command -v grim &> /dev/null && command -v slurp &> /dev/null; then
+    grim -g "$(slurp)" "$FILENAME"
+    if [ -f "$FILENAME" ]; then
+        wl-copy < "$FILENAME"
+        notify-send "🌸 Yumemiro Screenshot" "Saved to Pictures/Screenshots and copied to clipboard!" -i "$FILENAME"
+    fi
+else
+    notify-send "🌸 Screenshot" "grim/slurp missing!"
+fi

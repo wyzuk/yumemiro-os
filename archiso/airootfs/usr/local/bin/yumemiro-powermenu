@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Yumemiro OS - Power Menu
+# ==============================================================================
+
+options="🔒 Lock\n💤 Suspend\n🚪 Logout\n🔄 Reboot\n⏻ Shutdown"
+
+chosen=$(echo -e "$options" | rofi -dmenu -p "Power Menu" -theme-str '
+window { width: 300px; border-radius: 20px; }
+listview { lines: 5; }
+')
+
+case "$chosen" in
+    "🔒 Lock")
+        hyprlock || swaylock
+        ;;
+    "💤 Suspend")
+        systemctl suspend
+        ;;
+    "🚪 Logout")
+        hyprctl dispatch exit
+        ;;
+    "🔄 Reboot")
+        systemctl reboot
+        ;;
+    "⏻ Shutdown")
+        systemctl poweroff
+        ;;
+esac

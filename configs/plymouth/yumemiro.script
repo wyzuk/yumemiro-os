@@ -1,0 +1,19 @@
+# Plymouth script for Yumemiro OS
+Window.SetBackgroundTopColor(0.08, 0.06, 0.13);
+Window.SetBackgroundBottomColor(0.12, 0.08, 0.20);
+
+logo.image = Image("logo.png");
+logo.sprite = Sprite(logo.image);
+logo.sprite.SetX(Window.GetWidth() / 2 - logo.image.GetWidth() / 2);
+logo.sprite.SetY(Window.GetHeight() / 2 - logo.image.GetHeight() / 2 - 20);
+
+progress_bar.image = Image("progress_bar.png");
+progress_bar.sprite = Sprite(progress_bar.image);
+progress_bar.sprite.SetX(Window.GetWidth() / 2 - progress_bar.image.GetWidth() / 2);
+progress_bar.sprite.SetY(Window.GetHeight() / 2 + 60);
+
+fun refresh_callback () {
+    progress_bar.sprite.SetOpacity(0.85);
+}
+
+Plymouth.SetRefreshFunction (refresh_callback);

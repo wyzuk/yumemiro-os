@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Yumemiro-Pastel
+Comment=Pastel Glassmorphic Theme for Yumemiro OS
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Yumemiro-Pastel
+MetacityTheme=Yumemiro-Pastel
+IconTheme=Papirus-Dark
+CursorTheme=Yumemiro-Cursors
+ButtonLayout=close,minimize,maximize:menu

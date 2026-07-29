@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""
+Yumemiro OS - Theme Manager GUI
+Allows user to select and apply GTK/Qt themes, accent colors, and dark/light modes.
+"""
+
+import sys
+import os
+import subprocess
+
+try:
+    import tkinter as tk
+    from tkinter import ttk, messagebox
+except ImportError:
+    tk = None
+
+def apply_theme(theme_name):
+    gtk_config = os.path.expanduser("~/.config/gtk-3.0/settings.ini")
+    os.makedirs(os.path.dirname(gtk_config), exist_ok=True)
+    with open(gtk_config, "w") as f:
+        f.write(f"[Settings]\ngtk-theme-name={theme_name}\ngtk-icon-theme-name=Papirus-Dark\ngtk-cursor-theme-name=Yumemiro-Cursors\n")
+    
+    subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", theme_name], check=False)
+    print(f"Applied theme: {theme_name}")
+
+def launch_gui():
+    if not tk:
+        print("Tkinter not found. Applying default Yumemiro-Pastel theme...")
+        apply_theme("Yumemiro-Pastel")
+        return
+
+    root = tk.Tk()
+    root.title("Yumemiro OS Theme Manager")
+    root.geometry("520x360")
+    root.configure(bg="#161022")
+
+    style = ttk.Style()
+    style.theme_use("clam")
+    style.configure("TLabel", background="#161022", foreground="#f3e8ff", font=("Inter", 11))
+    style.configure("TButton", background="#f472b6", foreground="#ffffff", font=("Inter", 11, "bold"), borderwidth=0)
+    style.map("TButton", background=[("active", "#c084fc")])
+
+    lbl_title = ttk.Label(root, text="🌸 Yumemiro Theme Manager", font=("Inter", 16, "bold"), foreground="#f472b6")
+    lbl_title.pack(pady=20)
+
+    lbl_desc = ttk.Label(root, text="Choose your desktop theme preset:", font=("Inter", 10))
+    lbl_desc.pack(pady=5)
+
+    themes = ["Yumemiro-Pastel", "Yumemiro-Glass-Dark", "Yumemiro-Sakura-Light"]
+    selected_theme = tk.StringVar(value=themes[0])
+
+    for t in themes:
+        rb = tk.Radiobutton(root, text=t, value=t, variable=selected_theme, bg="#161022", fg="#d8b4fe",
+                            selectcolor="#261a3a", activebackground="#161022", activeforeground="#f472b6", font=("Inter", 11))
+        rb.pack(anchor="w", padx=140, pady=4)
+
+    def on_apply():
+        t = selected_theme.get()
+        apply_theme(t)
+        messagebox.showinfo("Yumemiro Theme", f"Applied theme: {t} successfully!")
+
+    btn_apply = ttk.Button(root, text="Apply Theme", command=on_apply)
+    btn_apply.pack(pady=25)
+
+    root.mainloop()
+
+if __name__ == "__main__":
+    launch_gui()

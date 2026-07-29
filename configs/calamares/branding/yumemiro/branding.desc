@@ -1,0 +1,41 @@
+# ==============================================================================
+# Yumemiro OS - Calamares Branding Descriptor
+# ==============================================================================
+
+---
+componentName:  yumemiro
+
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+
+strings:
+    productName:         Yumemiro OS
+    shortProductName:    Yumemiro
+    version:             1.0 Sakura
+    shortVersion:        1.0
+    versionedName:       Yumemiro OS 1.0 Sakura
+    shortVersionedName:  Yumemiro 1.0
+    bootloaderEntryName: Yumemiro OS
+    productUrl:          https://yumemiro.org
+    supportUrl:          https://forum.yumemiro.org
+    knownIssuesUrl:      https://github.com/yumemiro-os/yumemiro/issues
+    releaseNotesUrl:     https://yumemiro.org/releasenotes
+
+images:
+    productIcon:         "logo.svg"
+    productLogo:         "logo.svg"
+    productWallpaper:    "wallpaper.png"
+    productWelcome:      "welcome.png"
+
+style:
+    SidebarBackground:    "#161022"
+    SidebarText:          "#f3e8ff"
+    SidebarTextSelect:    "#f472b6"
+    SidebarTextHighlight: "#c084fc"
+
+slideshow:
+    - "slide1.png"
+    - "slide2.png"
+    - "slide3.png"
+
+slideshowAPI: 1

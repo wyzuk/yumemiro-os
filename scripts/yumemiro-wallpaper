@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+"""
+Yumemiro OS - Wallpaper Manager GUI
+Allows user to pick from built-in wallpapers or custom images and apply live.
+"""
+
+import sys
+import os
+import subprocess
+
+def set_wallpaper(path):
+    hyprpaper_conf = os.path.expanduser("~/.config/hypr/hyprpaper.conf")
+    os.makedirs(os.path.dirname(hyprpaper_conf), exist_ok=True)
+    with open(hyprpaper_conf, "w") as f:
+        f.write(f"preload = {path}\nwallpaper = ,{path}\nipc = on\n")
+    
+    subprocess.run(["hyprctl", "hyprpaper", "preload", path], check=False)
+    subprocess.run(["hyprctl", "hyprpaper", "wallpaper", f",{path}"], check=False)
+    print(f"Applied wallpaper: {path}")
+
+def main():
+    wall_dir = "/usr/share/backgrounds/yumemiro"
+    if not os.path.exists(wall_dir):
+        wall_dir = os.path.expanduser("~/Pictures/Wallpapers")
+    
+    if len(sys.argv) > 1:
+        set_wallpaper(sys.argv[1])
+        return
+
+    print("Yumemiro Wallpaper Utility")
+    if os.path.exists(wall_dir):
+        files = [os.path.join(wall_dir, f) for f in os.listdir(wall_dir) if f.endswith(('.jpg', '.png'))]
+        if files:
+            set_wallpaper(files[0])
+
+if __name__ == "__main__":
+    main()

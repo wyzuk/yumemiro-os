@@ -1,0 +1,104 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "margin-top": 8,
+    "margin-left": 14,
+    "margin-right": 14,
+    "spacing": 8,
+
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "custom/music",
+        "clock"
+    ],
+    "modules-right": [
+        "custom/weather",
+        "cpu",
+        "memory",
+        "battery",
+        "pulseaudio",
+        "custom/power"
+    ],
+
+    "custom/launcher": {
+        "format": "🌸 Yume",
+        "on-click": "rofi -show drun -theme ~/.config/rofi/theme.rasi",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}",
+        "on-click": "activate"
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 32,
+        "separate-outputs": true
+    },
+
+    "custom/music": {
+        "format": "🎵 {}",
+        "exec": "python3 /usr/local/bin/yumemiro-widgets music",
+        "interval": 2,
+        "on-click": "playerctl play-pause",
+        "max-length": 35
+    },
+
+    "clock": {
+        "format": "🕒 {:%H:%M | %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "exec": "python3 /usr/local/bin/yumemiro-widgets weather",
+        "interval": 600,
+        "tooltip": true
+    },
+
+    "cpu": {
+        "format": "💻 {usage}%",
+        "interval": 2,
+        "on-click": "kitty -e htop"
+    },
+
+    "memory": {
+        "format": "🧠 {percentage}%",
+        "interval": 2,
+        "on-click": "kitty -e htop"
+    },
+
+    "battery": {
+        "states": {
+            "good": 85,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "⚡ {capacity}%",
+        "format-icons": ["🔋", "🔋", "🔋"]
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "🔇 Muted",
+        "format-icons": {
+            "default": ["🔈", "🔉", "🔊"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "/usr/local/bin/yumemiro-powermenu",
+        "tooltip": false
+    }
+}

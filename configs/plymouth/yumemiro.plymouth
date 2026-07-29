@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Yumemiro OS Boot Splash
+Description=Smooth pastel anime splash animation for Yumemiro OS
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/yumemiro
+ScriptFile=/usr/share/plymouth/themes/yumemiro/yumemiro.script

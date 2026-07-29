@@ -1,0 +1,12 @@
+NAME="Yumemiro OS"
+PRETTY_NAME="Yumemiro OS 2026.03 (Yume Glassmorphic Edition)"
+ID=yumemiro
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;216;180;254"
+HOME_URL="https://yumemiro.org"
+DOCUMENTATION_URL="https://wiki.yumemiro.org"
+SUPPORT_URL="https://forum.yumemiro.org"
+BUG_REPORT_URL="https://github.com/yumemiro-os/yumemiro/issues"
+PRIVACY_POLICY_URL="https://yumemiro.org/privacy"
+LOGO=yumemiro-logo

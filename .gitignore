@@ -1,0 +1,27 @@
+# Ignore ISO images
+*.iso
+
+# Build output
+out/
+output/
+build/
+dist/
+
+# ArchISO work directory
+work/
+
+# Logs
+*.log
+
+# Cache
+.cache/
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
