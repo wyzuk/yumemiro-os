@@ -31,13 +31,13 @@ def copy_tree(src, dst):
 def main():
     print("Beginning Yumemiro OS Root Overlay Sync...")
 
-    # 1. Branding
+    # Branding
     copy_file(os.path.join(BASE_DIR, "branding", "os-release"), os.path.join(BASE_DIR, "archiso", "airootfs", "etc", "os-release"))
     copy_file(os.path.join(BASE_DIR, "branding", "issue"), os.path.join(BASE_DIR, "archiso", "airootfs", "etc", "issue"))
     copy_file(os.path.join(BASE_DIR, "branding", "lsb-release"), os.path.join(BASE_DIR, "archiso", "airootfs", "etc", "lsb-release"))
     copy_file(os.path.join(BASE_DIR, "branding", "hostname"), os.path.join(BASE_DIR, "archiso", "airootfs", "etc", "hostname"))
 
-    # 2. Configs to User Skel & Root Config Directories
+    # Configs to user skel & root config directories
     configs = ["hypr", "waybar", "rofi", "kitty", "fastfetch"]
     for c in configs:
         src = os.path.join(BASE_DIR, "configs", c)
@@ -48,7 +48,7 @@ def main():
         if c in ["hypr", "waybar", "rofi", "kitty"]:
             copy_tree(src, os.path.join(BASE_DIR, c))
 
-    # 3. SDDM & Plymouth & GRUB & Calamares
+    # SDDM, Plymouth, GRUB, and Calamares
     copy_tree(os.path.join(BASE_DIR, "configs", "sddm"), os.path.join(BASE_DIR, "sddm"))
     copy_tree(os.path.join(BASE_DIR, "configs", "sddm"), os.path.join(BASE_DIR, "archiso", "airootfs", "usr", "share", "sddm", "themes", "yumemiro"))
     copy_file(os.path.join(BASE_DIR, "configs", "sddm", "sddm.conf"), os.path.join(BASE_DIR, "archiso", "airootfs", "etc", "sddm.conf.d", "yumemiro.conf"))
@@ -61,10 +61,10 @@ def main():
     copy_tree(os.path.join(BASE_DIR, "configs", "grub"), os.path.join(BASE_DIR, "grub"))
     copy_tree(os.path.join(BASE_DIR, "configs", "grub"), os.path.join(BASE_DIR, "archiso", "airootfs", "usr", "share", "grub", "themes", "yumemiro"))
 
-    # 4. Themes & Wallpapers
+    # Themes and wallpapers
     copy_tree(os.path.join(BASE_DIR, "themes", "Yumemiro-Pastel"), os.path.join(BASE_DIR, "archiso", "airootfs", "usr", "share", "themes", "Yumemiro-Pastel"))
 
-    # 5. Executable Binaries & Scripts
+    # Executables and scripts
     bin_dir = os.path.join(BASE_DIR, "archiso", "airootfs", "usr", "local", "bin")
     copy_file(os.path.join(BASE_DIR, "welcome", "welcome.py"), os.path.join(bin_dir, "yumemiro-welcome"))
     copy_file(os.path.join(BASE_DIR, "widgets", "yumemiro_widgets.py"), os.path.join(bin_dir, "yumemiro-widgets"))

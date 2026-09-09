@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# ==============================================================================
-# Yumemiro OS ISO Build Pipeline Script (Linux / mkarchiso)
-# ==============================================================================
 
 set -e
 
@@ -14,14 +11,14 @@ echo "=========================================="
 echo "🌸 Building Yumemiro OS ISO Image..."
 echo "=========================================="
 
-# 1. Run sync to ensure airootfs overlay is up-to-date
+# Sync airootfs overlay
 python3 "$PROJECT_DIR/scripts/sync_airootfs.py"
 
-# 2. Prepare build output directory
+# Prepare build output directory
 mkdir -p "$BUILD_DIR"
 rm -rf "$WORK_DIR"
 
-# 3. Check for mkarchiso tool
+# Check for mkarchiso tool
 if command -v mkarchiso &> /dev/null; then
     echo "Running mkarchiso build..."
     sudo mkarchiso -v -w "$WORK_DIR" -o "$BUILD_DIR" "$ARCHISO_DIR"
