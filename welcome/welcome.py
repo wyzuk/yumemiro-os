@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Yumemiro OS - First Boot Welcome Application
+Yumemiro OS  Welcome Application
 Design: Glassmorphic Pastel, 24px Rounded Cards, Purple/Pink Accents
 """
 
